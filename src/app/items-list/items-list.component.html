@@ -1,0 +1,29 @@
+
+<div class="container centered">
+	<p class="centerText colorText">Shopping list</p>
+	<p *ngFor="let id of items ; let i = index" [ngClass]="{active:id.selected}">
+		<input  type="checkbox" [checked]="id.selected" (change)="updateCheckboxes(i)"> {{id.name}}
+	</p>	
+</div>
+
+<div class="section">
+	<button class="btn" (click)="toggleFalseChecked()" class="button">
+		<span class="mat-button-wrapper">Reset</span>
+		<span matripple="" class="mat-ripple mat-button-ripple"></span>
+		<span class="mat-button-focus-overlay"></span>
+	</button>
+
+	<button (click)="toggleTrueChecked()" class="button">
+		<span class="mat-button-wrapper">Apply</span>
+		<span matripple="" class="mat-ripple mat-button-ripple"></span>
+		<span class="mat-button-focus-overlay"></span>
+	</button>
+</div>
+
+<h1>Список що обрали</h1>
+<child-comp [childListChecked]="listChecked"></child-comp>
+
+
+
+
+	
